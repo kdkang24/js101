@@ -24,14 +24,10 @@ function decideWinner(choice, computerChoice) {
       (choice === 'l' && (computerChoice === 'k' || computerChoice === 'p')) ||
       (choice === 'k' && (computerChoice === 's' || computerChoice === 'r'))) {
     return 'player';
-  } else if ((choice === 'r' && (computerChoice === 'p' || computerChoice === 'k')) ||
-             (choice === 'p' && (computerChoice === 's' || computerChoice === 'l')) ||
-             (choice === 's' && (computerChoice === 'r' || computerChoice === 'k')) ||
-             (choice === 'l' && (computerChoice === 'r' || computerChoice === 's')) ||
-             (choice === 'k' && (computerChoice === 'l' || computerChoice === 'p'))) {
-    return 'computer';
-  } else {
+  } else if (choice === computerChoice) {
     return 'tie';
+  } else {
+    return 'computer';
   }
 }
 
@@ -65,23 +61,27 @@ while (true) {
     let computerChoice = VALID_CHOICES[randomIndex];
 
     displayWinnerAndUpdateScore(decideWinner(choice, computerChoice));
-    
     //Break while loop once either side reaches 3 wins
     if (playerWinCount === 3) {
+      console.clear();
       prompt("You are the grand winner!");
       break;
     } else if (computerWinCount === 3) {
+      console.clear();
       prompt("The computer is the grand winner!");
       break;
     }
   }
-
+  //Reset scores
+  playerWinCount = 0;
+  computerWinCount = 0;
   prompt('Do you want to play again? [y/n]');
   let answer = readline.question().toLowerCase();
-  while (answer[0] !== 'n' && answer[0] !== 'y') {
+  while (!['y', 'yes', 'n', 'no'].includes(answer)) {
     prompt('Please enter "y" or "n".');
     answer = readline.question().toLowerCase();
   }
 
   if (answer[0] !== 'y') break;
 }
+

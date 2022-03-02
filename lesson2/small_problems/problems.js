@@ -93,5 +93,69 @@ function sumOrProduct() {
   }
 }
 
-sumOrProduct();
+//Q7
+//Take two strings of different lengths as input
+//Return the result of concatenating short, long, short string
 
+function shortLongShort(string1, string2) {
+  let short;
+  let long;
+  if (string1.length > string2.length) {
+    long = string1;
+    short = string2;
+  } else {
+    long = string2;
+    short = string1;
+  }
+  return (short + long + short);
+}
+
+//Q8-9 Leap Years
+//Takes any year greater than 0 as input
+//Return true if it is a leap year, false if not
+function isLeapYear(year) {
+  year = Number(year);
+  //Prior to 1752, Julian calendar was used
+  //Any year evenly divisible by 4 is a leap year
+  if (year < 1752 && year % 4 === 0) {
+    return true;
+  } else if (year % 400 === 0) {
+    return true;
+  } else if (year % 100 === 0) {
+    return false;
+  } else {
+    return (year % 4 === 0);
+  }
+}
+
+//Multisum
+//Computes the sum of all numbers between 1 and the input number
+//that are multiples of 3 and 5
+
+function multisum(number) {
+  number = parseInt(number);
+  let multiples = [];
+  for (let i = 1; i <= number; i++) {
+    if (i % 3 === 0 || i % 5 === 0) {
+      multiples.push(i);
+    }
+  }
+  let sum = (previousValue, currentValue) => previousValue + currentValue;
+  return multiples.reduce(sum);
+}
+
+
+//UTF-16 string value
+//Sum of all the UTF-16 values of every character in the string
+function utf16Value(string) {
+  let sum = 0;
+  for (let counter = 0; counter < string.length; counter++) {
+    sum += Number(string.charCodeAt(counter));
+  }
+  return sum;
+}
+
+console.log(utf16Value('Four score'));
+console.log(utf16Value('Launch School'));
+console.log(utf16Value('a'));
+console.log(utf16Value(''));
