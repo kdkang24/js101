@@ -37,3 +37,21 @@ function factors(number) {
 }
 
 console.log(factors(-10));
+
+//Q8
+let munsters = {
+  Herman: { age: 32, gender: "male" },
+  Lily: { age: 30, gender: "female" },
+  Grandpa: { age: 402, gender: "male" },
+  Eddie: { age: 10, gender: "male" },
+  Marilyn: { age: 23, gender: "female" }
+};
+
+//function to modify in place the age and gender of each item in object
+function messWithDemographics(demoObject) {
+  Object.values(demoObject).forEach(familyMember => {
+    familyMember["age"] += 42;
+    familyMember["gender"] = "other";
+  });
+}
+
