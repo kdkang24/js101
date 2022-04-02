@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 //Daily Double
 
 function crunch(str) {
@@ -181,5 +182,54 @@ function cleanUp(sentence) {
 }
 
 //Test Cases
-console.log(cleanUp("---what's my +*& line?"));  // ' what s my line '
+// console.log(cleanUp("---what's my +*& line?"));  // ' what s my line '
+
+//What Century is That?
+
+// 0th, 1st, 2nd, 3rd, 4th, 5th, 6th, 7th, 8th, 9th
+function century(year) {
+  let centuryCounter = 1;
+  let result;
+
+  while (year > centuryCounter * 100) {
+    centuryCounter += 1;
+  }
+  result = centuryCounter.toString();
+  switch (result[result.length - 1]) {
+    case '0':
+    case '4':
+    case '5':
+    case '6':
+    case '7':
+    case '8':
+    case '9':
+      result += "th";
+      break;
+    case '1':
+      result += "st";
+      break;
+    case '2':
+      result += "nd";
+      break;
+    case '3':
+      result += 'rd';
+      break;
+    default:
+      console.log(`Last digit of result was ${result[result.length - 1]}`);
+
+  }
+  console.log(result);
+  return result;
+}
+
+//Test Cases
+century(2000);        // "20th"
+century(2001);        // "21st"
+century(1965);        // "20th"
+century(256);         // "3rd"
+century(5);           // "1st"
+century(10103);       // "102nd"
+century(1052);        // "11th"
+century(1127);        // "12th"
+century(11201);       // "113th"
 
