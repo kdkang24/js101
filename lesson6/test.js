@@ -60,5 +60,11 @@ function calculateHandValue(cardArray) {
 }
 
 // console.log(calculateHandValue([ { 'Jack of Spades': 10 }, { 'Ace of Hearts': 11 }, { 'Ace of Spades': 11 }, { 'Ace of Clubs': 11 }, { 'Ace of Diamonds': 11 } ]));
-let cards = [ { 'Jack of Spades': 10 }, { 'Ace of Hearts': 11 } ];
-console.log(Object.keys(cards[0]));
+// let cards = [ { 'Jack of Spades': 10 }, { 'Ace of Hearts': 11 } ];
+// console.log(Object.keys(cards[0]));
+
+function decideWinner(playerScore, dealerScore) {
+  return (playerScore > dealerScore) ? 'Player' : 'Dealer';
+}
+
+console.log(decideWinner(10, 11));
