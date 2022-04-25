@@ -85,3 +85,8 @@ while (true) {
   if (answer[0] !== 'y') break;
 }
 
+function decideWinner(playerScore, dealerScore) {
+  return (playerScore > dealerScore) ? 'Player' : 'Dealer';
+}
+
+console.log(decideWinner(21, 10));
