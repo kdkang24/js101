@@ -17,3 +17,21 @@
 
 [2, 11, 9, 4, 107, 21, 1].sort((a, b) => a - b);
 
+//Regex
+function letterCaseCount(string) {
+  let lowercaseChars = string.match(/[a-z]/g) || [];
+  let uppercaseChars = string.match(/[A-Z]/g) || [];
+  let neitherChars = string.match(/[^a-z]/gi) || [];
+
+  return {
+    lowercase: lowercaseChars.length,
+    uppercase: uppercaseChars.length,
+    neither: neitherChars.length
+  };
+}
+
+/[a-z]/g : Checks whether the character is a lowercase letter between 'a' and 'z'.
+/[A-Z]/g : Checks whether the character is an uppercase letter between 'A' and 'Z'.
+/[^a-z]/gi : Checks whether the character is neither an uppercase nor a lowercase letter.
+g : Tells the regex engine to search the entire string.
+i : Tells the regex engine to ignore case.

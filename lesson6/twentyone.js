@@ -159,19 +159,22 @@ function decideWinner(playerScore, dealerScore) {
 
 //GAMEPLAY
 
-//Shuffle deck
+
 while (true) {
   console.clear();
   console.log('*** Welcome to the game of Twenty One! ***');
   console.log('==========================================\n');
 
+  //Create new deck, shuffle, and deal hands
   let newDeck = createFreshDeck();
   shuffle(newDeck);
   let [newPlayerHand, newDealerHand] = dealInitialCards(newDeck);
 
+  //Show hands (1 dealer card is hidden) and prompt player
   showPlayerAndDealerCards(newPlayerHand, newDealerHand);
   let newPlayerScore = playersTurn(newPlayerHand, newDealerHand, newDeck);
 
+  //Check if player busts, then if dealer busts, then compare scores
   if (newPlayerScore > 0) {
     showAllCards(newPlayerHand, newDealerHand);
     let newDealerScore = dealersTurn(newDealerHand, newDeck);
