@@ -17,6 +17,9 @@
 
 [2, 11, 9, 4, 107, 21, 1].sort((a, b) => a - b);
 
+//Array Destructuring - Read up on this
+[a, b] = [b, a] //swap positions?
+
 //Regex
 function letterCaseCount(string) {
   let lowercaseChars = string.match(/[a-z]/g) || [];
