@@ -95,6 +95,41 @@ function stringToSignedInteger(string) {
 }
 
 //Test Cases
-console.log(stringToSignedInteger("4321") === 4321); // logs true
-console.log(stringToSignedInteger("-570") === -570); // logs true
-console.log(stringToSignedInteger("+100") === 100); // logs true
+// console.log(stringToSignedInteger("4321") === 4321); // logs true
+// console.log(stringToSignedInteger("-570") === -570); // logs true
+// console.log(stringToSignedInteger("+100") === 100); // logs true
+
+//Convert a Number to a String
+//Input - positive integer
+//Output - string representation of that integer
+//Explicit reqs
+  //Cannot use String(), toString(), or an expression like '' + number
+//Implicit reqs
+//Questions
+  //What to return if the input is empty or negative?
+  //What to return if input is not a number?
+
+//Algo
+
+
+//Code
+const DIGITS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+function integerToString(number) {
+  let result = '';
+
+  do {
+    let remainder = number % 10;
+    number = Math.floor(number / 10);
+
+    result = DIGITS[remainder] + result;
+  } while (number > 0);
+
+  return result;
+}
+
+//Test Cases
+integerToString(4321);        // "4321"
+integerToString(0);           // "0"
+integerToString(5000);        // "5000"
+integerToString(1234567890);  // "1234567890"
